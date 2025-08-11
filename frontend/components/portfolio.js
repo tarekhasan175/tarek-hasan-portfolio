@@ -1,6 +1,6 @@
 export default function Portfolio() {
     return (
-        <section id="portfolio" className="section-portfolio style-1 spacing-5 section">
+        <section id="portfolio" className="section-portfolio style-1 spacing-4 section">
             <div className="heading-section mb_42">
                 <div
                     className="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_34">

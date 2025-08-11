@@ -1,5 +1,6 @@
 import Header from "@/components/header";
 import About from "@/components/about";
+import Resume from "@/components/resume";
 import Service from "@/components/service";
 import Portfolio from "@/components/portfolio";
 import Testimonial from "@/components/testimonial";
@@ -20,6 +21,7 @@ export default function Home() {
         <div className="tf-container w-6">
 
           <About></About>
+          <Resume></Resume>
           {/* <Service></Service> */}
           <Portfolio></Portfolio>
           <Testimonial></Testimonial>

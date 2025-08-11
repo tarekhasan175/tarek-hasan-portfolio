@@ -1,9 +1,27 @@
+
+
 export default function Footer() {
-    return (
-        <div>
-            <footer className="footer-landing">
-                <p>All Rights Reserved &copy; Tarek Hasan - {new Date().getFullYear()}</p>
-            </footer>
-        </div>
-    );
+  return (
+    <footer className="footer-landing">
+      <div className="content ">
+        <p>
+          All Rights Reserved &copy; Tarek Hasan - {new Date().getFullYear()}
+        </p>
+        <ul className="list-icon d-flex justify-center mt-4">
+          <li>
+            <a href="#" className="icon-LinkedIn"></a>
+          </li>
+          <li>
+            <a href="#" className="icon-GitHub"></a>
+          </li>
+          <li>
+            <a href="#" className="icon-X"></a>
+          </li>
+          <li>
+            <a href="#" className="icon-dribbble"></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  );
 }
