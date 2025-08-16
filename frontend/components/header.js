@@ -81,7 +81,7 @@ export default function Header() {
 
               <li className="text-menu text_white ">
                 <a
-                  href="#portfolio"
+                  href="#partners"
                   className="scroll-link nav_link toggle splitting link link-no-action text-button font-3 fw-6"
                 >
                   <span className="text" data-splitting="true">
