@@ -4209,6 +4209,13 @@ form textarea {
   right: 20.81px;
 }
 
+.skill-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--Primary);
+}
+
 @media (max-width: 991px) {
   .wrap-partner {
     height: unset;
