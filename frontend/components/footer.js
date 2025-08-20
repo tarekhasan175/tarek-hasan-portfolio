@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="footer-landing">
+    <footer className="footer-landing style-1">
       <div className="content ">
         <p>
           All Rights Reserved &copy; Tarek Hasan - {new Date().getFullYear()}
