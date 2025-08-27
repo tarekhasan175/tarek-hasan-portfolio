@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-            Noble<span>UI</span>
+            Tarek <span>H</span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>
@@ -380,5 +380,11 @@
                 </a>
             </li>
         </ul>
+        <div class="ps__rail-x" style="left: 0px; bottom: -274px;">
+            <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps__rail-y" style="top: 0px; height: 130px; right: 0px;">
+            <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 24px;"></div>
+        </div>
     </div>
 </nav>

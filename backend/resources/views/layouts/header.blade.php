@@ -36,8 +36,8 @@
 <link href="https://nobleui.com/laravel/template/demo1/build/plugins/flatpickr/flatpickr.min.css" rel="stylesheet" />
 
 <!-- CSS for LTR layout-->
-<link rel="preload" as="style" href="https://nobleui.com/laravel/template/demo1/build/assets/app-CHy6W3eO.css" />
+<link rel="preload" as="style" href="assets/css/app-CHy6W3eO.css" />
 <link rel="preload" as="style"
     href="https://nobleui.com/laravel/template/demo1/build/assets/custom-tn0RQdqM.css" />
-<link rel="stylesheet" href="https://nobleui.com/laravel/template/demo1/build/assets/app-CHy6W3eO.css" />
+<link rel="stylesheet" href="assets/css/app-CHy6W3eO.css" />
 <link rel="stylesheet" href="https://nobleui.com/laravel/template/demo1/build/assets/custom-tn0RQdqM.css" />
