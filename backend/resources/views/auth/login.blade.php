@@ -72,19 +72,26 @@
                                         <h5 class="text-secondary fw-normal mb-4">Welcome back! Log in to your
                                             dashboard.
                                         </h5>
-                                        <form class="forms-sample">
+                                        <form class="forms-sample" action="{{ route('authenticate') }}" method="POST">
+                                            @csrf
                                             <div class="mb-3">
                                                 <label for="userEmail" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="userEmail"
-                                                    placeholder="Email">
+                                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="userEmail" name="email"
+                                                    placeholder="Email" value="{{ old('email') }}">
+                                                @error('email')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="mb-3">
                                                 <label for="userPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="userPassword"
+                                                <input type="password" class="form-control @error('password') is-invalid @enderror" id="userPassword" name="password"
                                                     autocomplete="current-password" placeholder="Password">
+                                                @error('password')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div>
-                                                <a href="#" class="btn btn-primary me-2 mb-2 mb-md-0">Login</a>
+                                                <button type="submit" class="btn btn-primary me-2 mb-2 mb-md-0">Login</button>
                                             </div>
                                         </form>
                                     </div>

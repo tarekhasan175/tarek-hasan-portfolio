@@ -5,8 +5,8 @@
 <title>Tarek H Portfolio | @yield('title')</title>
 
 <!-- color-modes:js -->
-<link rel="modulepreload" href="assets/js/color-modes-CkunOepb.js" />
-<script type="module" src="assets/js/color-modes-CkunOepb.js"></script>
+<link rel="modulepreload" href="{{ asset('assets/js/color-modes-CkunOepb.js') }}" />
+<script type="module" src="{{ asset('assets/js/color-modes-CkunOepb.js') }}"></script>
 <script>
     (function() {
         const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ?
@@ -24,10 +24,10 @@
 <!-- CSRF Token -->
 {{-- <meta name="_token" content="w7qvuy7wTrT2NABPpg82G3sxDuIaUUmzmLyt02eH"> --}}
 
-<link rel="shortcut icon" href="assets/images/logo/th-fav.png">
+<link rel="shortcut icon" href="{{ asset('assets/images/logo/th-fav.png') }}">
 
 <!-- Splash Screen -->
-<link href="assets/css/splash-screen.css" rel="stylesheet" />
+<link href="{{ asset('assets/css/splash-screen.css') }}" rel="stylesheet" />
 
 <!-- plugin css -->
 <link href="https://nobleui.com/laravel/template/demo1/build/plugins/perfect-scrollbar/perfect-scrollbar.css"
@@ -36,8 +36,8 @@
 <link href="https://nobleui.com/laravel/template/demo1/build/plugins/flatpickr/flatpickr.min.css" rel="stylesheet" />
 
 <!-- CSS for LTR layout-->
-<link rel="preload" as="style" href="assets/css/app-CHy6W3eO.css" />
+<link rel="preload" as="style" href="{{ asset('assets/css/app-CHy6W3eO.css') }}" />
 <link rel="preload" as="style"
     href="https://nobleui.com/laravel/template/demo1/build/assets/custom-tn0RQdqM.css" />
-<link rel="stylesheet" href="assets/css/app-CHy6W3eO.css" />
+<link rel="stylesheet" href="{{ asset('assets/css/app-CHy6W3eO.css') }}" />
 <link rel="stylesheet" href="https://nobleui.com/laravel/template/demo1/build/assets/custom-tn0RQdqM.css" />
