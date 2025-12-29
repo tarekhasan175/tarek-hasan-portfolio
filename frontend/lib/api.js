@@ -1,4 +1,11 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:8000';
+
+export function getImageUrl(path) {
+    if (!path) return "/assets/images/item/service-item-1.webp"; // Default fallback
+    if (path.startsWith('http')) return path;
+    return `${BASE_URL}${path.startsWith('/') ? '' : '/'}${path}`;
+}
 
 async function fetchAPI(endpoint, options = {}) {
     try {

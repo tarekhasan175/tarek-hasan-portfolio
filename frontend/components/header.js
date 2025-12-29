@@ -1,4 +1,15 @@
 import Image from "next/image";
+import { getImageUrl } from "@/lib/api";
+
+const getSocialIcon = (url) => {
+  if (url.includes('github')) return 'icon-GitHub';
+  if (url.includes('linkedin')) return 'icon-LinkedIn';
+  if (url.includes('twitter') || url.includes('x.com')) return 'icon-X';
+  if (url.includes('dribbble')) return 'icon-dribbble';
+  if (url.includes('facebook')) return 'icon-Facebook';
+  if (url.includes('instagram')) return 'icon-Instagram';
+  return 'icon-Link'; // Default
+};
 
 export default function Header({ profile }) {
   const { name, title, logo, cv_link, social_links } = profile || {};
@@ -251,13 +262,13 @@ export default function Header({ profile }) {
                   alt="avatar"
                   width={68}
                   height={68}
-                  src="/assets/images/user/Profile.jpeg"
+                  src={getImageUrl(logo) || "/assets/images/user/Profile.jpeg"}
                 />
               </div>
               <div className="info">
                 <h6 className="font-4 mb_4">{name || "Tarek H"}</h6>
                 <div className="text-label text-uppercase fw-6 text_primary-color font-3  letter-spacing-1">
-                  {title || "Full Stuck Developer"}
+                  {title || "Full Stack Web Developer"}
                 </div>
               </div>
             </div>

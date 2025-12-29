@@ -4,6 +4,16 @@ import Image from "next/image";
 import { useState } from "react";
 import { submitContact } from "@/lib/api";
 
+const getSocialIcon = (url) => {
+  if (url.includes('github')) return 'icon-GitHub';
+  if (url.includes('linkedin')) return 'icon-LinkedIn';
+  if (url.includes('twitter') || url.includes('x.com')) return 'icon-X';
+  if (url.includes('dribbble')) return 'icon-dribbble';
+  if (url.includes('facebook')) return 'icon-Facebook';
+  if (url.includes('instagram')) return 'icon-Instagram';
+  return 'icon-Link'; // Default
+};
+
 export default function Contact({ profile }) {
   const { email, social_links } = profile || {};
   const [formData, setFormData] = useState({
@@ -22,9 +32,13 @@ export default function Contact({ profile }) {
     setStatus("loading");
     try {
       const res = await submitContact(formData);
-      if (res) {
+      if (res && res.message === "Message sent successfully!") {
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
+      } else if (res && res.errors) {
+        setStatus("error");
+        // Could set specific field errors here if UI supported it
+        console.error("Validation errors:", res.errors);
       } else {
         setStatus("error");
       }
@@ -69,18 +83,28 @@ export default function Contact({ profile }) {
                 </p> */}
               </div>
               <ul className="list-icon d-flex">
-                <li>
-                  <a href="#" className="icon-LinkedIn"></a>
-                </li>
-                <li>
-                  <a href="#" className="icon-GitHub"></a>
-                </li>
-                <li>
-                  <a href="#" className="icon-X"></a>
-                </li>
-                <li>
-                  <a href="#" className="icon-dribbble"></a>
-                </li>
+                {social_links && social_links.length > 0 ? (
+                  social_links.map((link, index) => (
+                    <li key={index}>
+                      <a href={link} className={getSocialIcon(link)} target="_blank" rel="noopener noreferrer"></a>
+                    </li>
+                  ))
+                ) : (
+                  <>
+                    <li>
+                      <a href="#" className="icon-LinkedIn"></a>
+                    </li>
+                    <li>
+                      <a href="#" className="icon-GitHub"></a>
+                    </li>
+                    <li>
+                      <a href="#" className="icon-X"></a>
+                    </li>
+                    <li>
+                      <a href="#" className="icon-dribbble"></a>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>

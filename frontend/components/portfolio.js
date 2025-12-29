@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImageUrl } from "@/lib/api";
 
 export default function Portfolio({ projects }) {
   return (
@@ -19,12 +20,12 @@ export default function Portfolio({ projects }) {
           projects.map((item, index) => (
             <div key={index} className="portfolio-item">
               <a
-                href={item.image || "/assets/images/user/crm.png"}
+                href={getImageUrl(item.image) || "/assets/images/user/crm.png"}
                 data-fancybox="gallery"
                 className="img-style"
               >
                 <Image
-                  src={item.image || "/assets/images/user/crm.png"}
+                  src={getImageUrl(item.image) || "/assets/images/user/crm.png"}
                   alt="portfolio"
                   width={600}
                   height={400}

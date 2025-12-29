@@ -1,4 +1,15 @@
 import Image from "next/image";
+import { getImageUrl } from "@/lib/api";
+
+const getSocialIcon = (url) => {
+  if (url.includes('github')) return 'icon-GitHub';
+  if (url.includes('linkedin')) return 'icon-LinkedIn';
+  if (url.includes('twitter') || url.includes('x.com')) return 'icon-X';
+  if (url.includes('dribbble')) return 'icon-dribbble';
+  if (url.includes('facebook')) return 'icon-Facebook';
+  if (url.includes('instagram')) return 'icon-Instagram';
+  return 'icon-Link'; // Default
+};
 
 export default function About({ profile }) {
   const { about_me, cv_link, social_links } = profile || {};
@@ -10,7 +21,7 @@ export default function About({ profile }) {
             <div className="box-author mb_12">
               <div className="img-style mb_16">
                 <Image
-                  src="/assets/images/user/Profile.jpeg"
+                  src={getImageUrl(profile?.image) || "/assets/images/user/Profile.jpeg"}
                   alt="feature post"
                   width={400}
                   height={400}
@@ -36,28 +47,38 @@ export default function About({ profile }) {
               </div>
             </div>
             <ul className="list-icon d-flex justify-content-center mb_28">
-              <li>
-                <a href="https://github.com/tarekhasan175" className="link">
-                  <span className="icon-GitHub"></span>
-                </a>
-              </li>
-
-              <li>
-                <a href="https://www.linkedin.com/">
-                  <span className="icon-LinkedIn"></span>
-                </a>
-              </li>
-
-              <li>
-                <a href="https://x.com">
-                  <span className="icon-X"></span>
-                </a>
-              </li>
-              <li>
-                <a href="https://dribbble.com/">
-                  <span className="icon-dribbble"></span>
-                </a>
-              </li>
+              {social_links && social_links.length > 0 ? (
+                social_links.map((link, index) => (
+                  <li key={index}>
+                    <a href={link} className="link" target="_blank" rel="noopener noreferrer">
+                      <span className={getSocialIcon(link)}></span>
+                    </a>
+                  </li>
+                ))
+              ) : (
+                <>
+                  <li>
+                    <a href="https://github.com/tarekhasan175" className="link">
+                      <span className="icon-GitHub"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/">
+                      <span className="icon-LinkedIn"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://x.com">
+                      <span className="icon-X"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://dribbble.com/">
+                      <span className="icon-dribbble"></span>
+                    </a>
+                  </li>
+                </>
+              )}
             </ul>
             <a href="#" className="tf-btn btn-w-full style-border mb_20">
               <span className="bg_btn"></span>

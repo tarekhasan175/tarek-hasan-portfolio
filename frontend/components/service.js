@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImageUrl } from "@/lib/api";
 
 export default function Service({ services }) {
     return (
@@ -38,10 +39,10 @@ export default function Service({ services }) {
                         </div>
                         <div className="img-hover">
                             <Image
+                                src={getImageUrl(item.image) || "/assets/images/item/service-item-1.webp"}
                                 alt="item"
                                 width={140}
                                 height={140}
-                                src={item.image || "/assets/images/item/service-item-1.webp"}
                             />
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getImageUrl } from "@/lib/api";
 
 export default function Skill({ skills }) {
   const { backend, frontend, tools, database } = skills || {};
@@ -23,7 +24,7 @@ export default function Skill({ skills }) {
               <ul className="mx-4 ">
                 {backend && backend.length > 0 ? (
                   backend.map((item, index) => (
-                    <li key={index} className="p-2 text_white">{item}</li>
+                    <li key={index} className="p-2 text_white">{item.name || item}</li>
                   ))
                 ) : (
                   <>
@@ -38,7 +39,7 @@ export default function Skill({ skills }) {
               <ul className="mx-4">
                 {database && database.length > 0 ? (
                   database.map((item, index) => (
-                    <li key={index} className="p-2 text_white">{item}</li>
+                    <li key={index} className="p-2 text_white">{item.name || item}</li>
                   ))
                 ) : (
                   <>
@@ -53,7 +54,7 @@ export default function Skill({ skills }) {
               <ul className="mx-4">
                 {frontend && frontend.length > 0 ? (
                   frontend.map((item, index) => (
-                    <li key={index} className="p-2 text_white">{item}</li>
+                    <li key={index} className="p-2 text_white">{item.name || item}</li>
                   ))
                 ) : (
                   <>
@@ -69,7 +70,7 @@ export default function Skill({ skills }) {
               <ul className="mx-4">
                 {tools && tools.length > 0 ? (
                   tools.map((item, index) => (
-                    <li key={index} className="p-2 text_white">{item}</li>
+                    <li key={index} className="p-2 text_white">{item.name || item}</li>
                   ))
                 ) : (
                   <>

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import initTestimonialSwiper from "@/public/js/testimonial-swiper"; // adjust path if needed
 
 import Image from "next/image";
+import { getImageUrl } from "@/lib/api";
 
 export default function Testimonial({ testimonials }) {
     useEffect(() => {
@@ -57,7 +58,7 @@ export default function Testimonial({ testimonials }) {
                                     </div>
                                     <div className="item-shape spotlight">
                                         <Image
-                                            src="/assets/images/item/small-comet.webp"
+                                            src={getImageUrl(item.image) || "/assets/images/item/small-comet.webp"}
                                             alt="item"
                                             width={50}
                                             height={50}
