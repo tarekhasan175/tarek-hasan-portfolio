@@ -1,4 +1,6 @@
-export default function Pricing() {
+import Image from "next/image";
+
+export default function Pricing({ pricing }) {
     return (
         <section id="pricing"
             className="section-pricing flat-animate-tab spacing-5 section">
@@ -25,108 +27,74 @@ export default function Pricing() {
                 </ul>
             </div>
             <div className="tab-content">
-                <div className="tab-pane active show" id="standard-plan"
-                    role="tabpanel">
-                    <div
-                        className="pricing-item style-1 bs-light-mode area-effect">
-                        <h4 className="title">Standard <br />Plan
-                        </h4>
-                        <ul className="list-check d-grid gap_8">
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>60
-                                keywords
-                            </li>
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>6,000
-                                monthly website
-                                visitors
-                            </li>
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>8
-                                blogs / month
-                            </li>
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>10
-                                quality backlinks /
-                                month
-                            </li>
-                        </ul>
-                        <div className="wrap-pricing">
-                            <h3
-                                className="text_white d-flex align-items-center gap_4 mb_20">
-                                $29 <span
-                                    className="text-caption-1 text_muted-color">/per
-                                    hour</span>
-                            </h3><a href="#contact"
-                                className="tf-btn style-1 animate-hover-btn"><span>Get
-                                    Started
-                                    !</span></a>
+                {pricing && pricing.length > 0 ? (
+                    pricing.map((plan, index) => (
+                        <div key={index} className={`tab-pane ${index === 0 ? 'active show' : ''}`} id={`plan-${index}`} role="tabpanel">
+                            <div className="pricing-item style-1 bs-light-mode area-effect">
+                                <h4 className="title" dangerouslySetInnerHTML={{ __html: plan.name }}></h4>
+                                <ul className="list-check d-grid gap_8">
+                                    {plan.features && plan.features.map((feature, i) => (
+                                        <li key={i} className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
+                                            <i className="icon-check"></i>{feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <div className="wrap-pricing">
+                                    <h3 className="text_white d-flex align-items-center gap_4 mb_20">
+                                        {plan.price} <span className="text-caption-1 text_muted-color">{plan.unit}</span>
+                                    </h3>
+                                    <a href="#contact" className="tf-btn style-1 animate-hover-btn">
+                                        <span>Get Started !</span>
+                                    </a>
+                                </div>
+                                <div className="item-shape spotlight">
+                                    <Image
+                                        src="/assets/images/item/small-comet.webp"
+                                        alt="item"
+                                        width={50}
+                                        height={50}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                        <div className="item-shape spotlight"><img
-                            src="assets/images/item/small-comet.webp"
-                            alt="item"
-                            loading="lazy" />
-                        </div>
-                    </div>
-                </div>
-                <div className="tab-pane " id="premium-plan" role="tabpanel">
-                    <div
-                        className="pricing-item style-1 bs-light-mode area-effect">
-                        <h4 className="title">Premium Plan</h4>
-                        <ul className="list-check d-grid gap_8">
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>60
-                                keywords
-                            </li>
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>6,000
-                                monthly website
-                                visitors
-                            </li>
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>8
-                                blogs / month
-                            </li>
-                            <li
-                                className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
-                                <i
-                                    className="icon-check"></i>10
-                                quality backlinks /
-                                month
-                            </li>
-                        </ul>
-                        <div className="wrap-pricing">
-                            <h3
-                                className="text_white d-flex align-items-center gap_4 mb_20">
-                                $39 <span
-                                    className="text-caption-1 text_muted-color">/per
-                                    hour</span>
-                            </h3><a href="#contact"
-                                className="tf-btn style-1 animate-hover-btn"><span>Get
-                                    Started
-                                    !</span></a>
-                        </div>
-                        <div className="item-shape spotlight"><img
-                            src="assets/images/item/small-comet.webp"
-                            alt="item"
-                            loading="lazy" />
+                    ))
+                ) : (
+                    <div className="tab-pane active show" id="standard-plan" role="tabpanel">
+                        <div className="pricing-item style-1 bs-light-mode area-effect">
+                            <h4 className="title">Standard <br />Plan</h4>
+                            <ul className="list-check d-grid gap_8">
+                                <li className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
+                                    <i className="icon-check"></i>60 keywords
+                                </li>
+                                <li className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
+                                    <i className="icon-check"></i>6,000 monthly website visitors
+                                </li>
+                                <li className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
+                                    <i className="icon-check"></i>8 blogs / month
+                                </li>
+                                <li className="text-body-1 text_white font-3 d-flex align-items-center gap_8">
+                                    <i className="icon-check"></i>10 quality backlinks / month
+                                </li>
+                            </ul>
+                            <div className="wrap-pricing">
+                                <h3 className="text_white d-flex align-items-center gap_4 mb_20">
+                                    $29 <span className="text-caption-1 text_muted-color">/per hour</span>
+                                </h3>
+                                <a href="#contact" className="tf-btn style-1 animate-hover-btn">
+                                    <span>Get Started !</span>
+                                </a>
+                            </div>
+                            <div className="item-shape spotlight">
+                                <Image
+                                    src="/assets/images/item/small-comet.webp"
+                                    alt="item"
+                                    width={50}
+                                    height={50}
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </section>
     );

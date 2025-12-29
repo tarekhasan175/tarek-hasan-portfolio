@@ -1,4 +1,7 @@
-export default function About() {
+import Image from "next/image";
+
+export default function About({ profile }) {
+  const { about_me, cv_link, social_links } = profile || {};
   return (
     <div className="wrap-section">
       <div className="row">
@@ -6,7 +9,13 @@ export default function About() {
           <div className="user-bar text-center style-1">
             <div className="box-author mb_12">
               <div className="img-style mb_16">
-                <img src="assets/images/user/Profile.jpeg" alt="feature post" />
+                <Image
+                  src="/assets/images/user/Profile.jpeg"
+                  alt="feature post"
+                  width={400}
+                  height={400}
+                  className="w-full h-auto"
+                />
               </div>
               <div className="info">
                 <div className="name font-3 text_white mb_8">
@@ -67,7 +76,12 @@ export default function About() {
               </span>
             </a>
             <div className="item-shape">
-              <img src="assets/images/item/small-comet.png" alt="item" />
+              <Image
+                src="/assets/images/item/small-comet.png"
+                alt="item"
+                width={100}
+                height={100}
+              />
             </div>
           </div>
         </div>
@@ -122,14 +136,15 @@ export default function About() {
                   <template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template>
                   <span className="sub">2+</span>
                 </div>
-                <p className="text-body-1 text_muted-color font-3">
-                  Years in Development
+                <p className="text-body-1 text_white mb_40">
+                  {about_me || "I am a passionate developer..."}
                 </p>
                 <div className="item-shape">
-                  <img
-                    src="assets/images/item/small-comet.webp"
+                  <Image
+                    src="/assets/images/item/small-comet.webp"
                     alt="item"
-                    loading="lazy"
+                    width={50}
+                    height={50}
                   />
                 </div>
               </div>

@@ -14,7 +14,23 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Tarek H - Portfolio",
-  description: "",
+  description: "Professional portfolio of Tarek H, showcasing skills, projects, and experience.",
+  keywords: ["Tarek H", "Portfolio", "Web Developer", "Software Engineer", "Frontend", "React", "Next.js"],
+  openGraph: {
+    title: "Tarek H - Portfolio",
+    description: "Professional portfolio of Tarek H, showcasing skills, projects, and experience.",
+    url: "https://tarek-hasan-portfolio.vercel.app", // Assuming a URL or placeholder
+    siteName: "Tarek H Portfolio",
+    images: [
+      {
+        url: "/assets/images/user/Profile.jpeg", // Using the profile image as OG image
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {

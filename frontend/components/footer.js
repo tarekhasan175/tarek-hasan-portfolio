@@ -1,11 +1,10 @@
-
-
-export default function Footer() {
+export default function Footer({ profile }) {
+  const { name } = profile || {};
   return (
     <footer className="footer-landing style-1">
       <div className="content ">
         <p>
-          All Rights Reserved &copy; Tarek Hasan - {new Date().getFullYear()}
+          © {new Date().getFullYear()} {name || "Tarek H"} - All rights reserved.
         </p>
         <ul className="list-icon d-flex justify-center mt-4">
           <li>

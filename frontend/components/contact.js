@@ -1,4 +1,39 @@
-export default function Contact() {
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+import { submitContact } from "@/lib/api";
+
+export default function Contact({ profile }) {
+  const { email, social_links } = profile || {};
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await submitContact(formData);
+      if (res) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
+  };
+
   return (
     <div id="contact" className="section-contact style-1 section spacing-6">
       <div className="row">
@@ -23,10 +58,10 @@ export default function Contact() {
               <div className="mb_12">
                 <h4 className="text_white fw-4 mb_4">
                   <a
-                    href="mailto:tarekhn175@gmail.com"
+                    href={`mailto:${email || "tarekhn175@gmail.com"}`}
                     className="hover-underline-link link"
                   >
-                    tarekhn175@gmail.com
+                    {email || "tarekhn175@gmail.com"}
                   </a>
                 </h4>
                 {/* <p className="text-caption-2 text_secondary-color font-3">
@@ -51,14 +86,16 @@ export default function Contact() {
           </div>
         </div>
         <div className="col-lg-6">
-          <form className="form-contact bs-light-mode">
+          <form className="form-contact bs-light-mode" onSubmit={handleSubmit}>
             <div className="d-grid gap_24 mb_24">
               <fieldset>
                 <input
                   type="text"
                   placeholder="Enter your name"
-                  required=""
+                  required
                   name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                 />
               </fieldset>
               <fieldset>
@@ -66,8 +103,10 @@ export default function Contact() {
                   id="email"
                   type="email"
                   placeholder="Enter your email"
-                  required=""
+                  required
                   name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </fieldset>
               <fieldset>
@@ -76,7 +115,9 @@ export default function Contact() {
                   rows="4"
                   placeholder="Message..."
                   name="message"
-                  required=""
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
                 ></textarea>
               </fieldset>
             </div>
@@ -85,16 +126,23 @@ export default function Contact() {
               <button
                 className="tf-btn style-1 animate-hover-btn"
                 type="submit"
+                disabled={status === "loading"}
               >
-                <span>Get Started !</span>
+                <span>{status === "loading" ? "Sending..." : "Get Started !"}</span>
               </button>
             </div>
+            {status === "success" && (
+              <p className="text-success mt-3">Message sent successfully!</p>
+            )}
+            {status === "error" && (
+              <p className="text-danger mt-3">Failed to send message. Please try again.</p>
+            )}
             <div className="item-shape">
-              <img
-                src="assets/images/item/small-comet.webp"
-                loading="lazy"
-                decoding="async"
+              <Image
+                src="/assets/images/item/small-comet.webp"
                 alt="item"
+                width={50}
+                height={50}
               />
             </div>
           </form>

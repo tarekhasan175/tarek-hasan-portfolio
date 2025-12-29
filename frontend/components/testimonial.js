@@ -3,7 +3,9 @@
 import { useEffect } from "react";
 import initTestimonialSwiper from "@/public/js/testimonial-swiper"; // adjust path if needed
 
-export default function Testimonial() {
+import Image from "next/image";
+
+export default function Testimonial({ testimonials }) {
     useEffect(() => {
         initTestimonialSwiper();
     }, []);
@@ -33,122 +35,69 @@ export default function Testimonial() {
             </div>
             <div className="swiper">
                 <div className="swiper-wrapper">
-                    <div className="swiper-slide h-auto">
-                        <div className="testimonial-item area-effect h-100">
-                            <div className="icon">
-                                <i className="icon-quote"></i>
+                    {testimonials && testimonials.length > 0 ? (
+                        testimonials.map((item, index) => (
+                            <div key={index} className="swiper-slide h-auto">
+                                <div className="testimonial-item area-effect h-100">
+                                    <div className="icon">
+                                        <i className="icon-quote"></i>
+                                    </div>
+                                    <p className="text-body-2 text_white mb_21">
+                                        &quot;{item.quote}&quot;
+                                    </p>
+                                    <div className="athor">
+                                        <h5 className="name text_white mb_4 font-4">
+                                            <a href={item.link || "#"} className="link">
+                                                {item.author}
+                                            </a>
+                                        </h5>
+                                        <span className="text-label text-uppercase text_primary-color font-3">
+                                            {item.position}
+                                        </span>
+                                    </div>
+                                    <div className="item-shape spotlight">
+                                        <Image
+                                            src="/assets/images/item/small-comet.webp"
+                                            alt="item"
+                                            width={50}
+                                            height={50}
+                                        />
+                                    </div>
+                                </div>
                             </div>
-                            <p className="text-body-2 text_white mb_21">
-                                &quot;ZenG delivered exceptional work. He’s professional, fast,
-                                and extremely easy to work with. I’d definitely hire him again
-                                for future projects!&quot;
-                            </p>
-                            <div className="athor">
-                                <h5 className="name text_white mb_4 font-4">
-                                    <a href="#" className="link">
-                                        Lincoln Press
-                                    </a>
-                                </h5>
-                                <span className="text-label text-uppercase text_primary-color font-3">
-                                    CEO Themesfalt
-                                </span>
-                            </div>
-                            <div className="item-shape spotlight">
-                                <img
-                                    src="assets/images/item/small-comet.webp"
-                                    alt="item"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="swiper-slide h-auto">
-                        <div className="testimonial-item area-effect h-100">
-                            <div className="icon">
-                                <i className="icon-quote"></i>
-                            </div>
-                            <p className="text-body-2 text_white mb_21">
-                                &quot;ZenG managed our project with impressive efficiency and
-                                clarity. Deadlines were met, communication was smooth, and the
-                                outcome was exactly what we hoped for.&quot;
-                            </p>
-                            <div className="athor">
-                                <h5 className="name text_white mb_4 font-4">
-                                    <a href="#" className="link">
-                                        Cheyenne Mango
-                                    </a>
-                                </h5>
-                                <span className="text-label text-uppercase text_primary-color font-3">
-                                    CEO Themesfalt
-                                </span>
-                            </div>
-                            <div className="item-shape spotlight">
-                                <img
-                                    src="assets/images/item/small-comet.webp"
-                                    alt="item"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="swiper-slide h-auto">
-                        <div className="testimonial-item area-effect h-100">
-                            <div className="icon">
-                                <i className="icon-quote"></i>
-                            </div>
-                            <p className="text-body-2 text_white mb_21">
-                                &quot;ZenG managed our project with impressive efficiency and
-                                clarity. Deadlines were met, communication was smooth, and the
-                                outcome was exactly what we hoped for.&quot;
-                            </p>
-                            <div className="athor">
-                                <h5 className="name text_white mb_4 font-4">
-                                    <a href="#" className="link">
-                                        Cheyenne Mango
-                                    </a>
-                                </h5>
-                                <span className="text-label text-uppercase text_primary-color font-3">
-                                    CEO Themesfalt
-                                </span>
-                            </div>
-                            <div className="item-shape spotlight">
-                                <img
-                                    src="assets/images/item/small-comet.webp"
-                                    alt="item"
-                                    loading="lazy"
-                                />
+                        ))
+                    ) : (
+                        <div className="swiper-slide h-auto">
+                            <div className="testimonial-item area-effect h-100">
+                                <div className="icon">
+                                    <i className="icon-quote"></i>
+                                </div>
+                                <p className="text-body-2 text_white mb_21">
+                                    &quot;ZenG delivered exceptional work. He’s professional, fast,
+                                    and extremely easy to work with. I’d definitely hire him again
+                                    for future projects!&quot;
+                                </p>
+                                <div className="athor">
+                                    <h5 className="name text_white mb_4 font-4">
+                                        <a href="#" className="link">
+                                            Lincoln Press
+                                        </a>
+                                    </h5>
+                                    <span className="text-label text-uppercase text_primary-color font-3">
+                                        CEO Themesfalt
+                                    </span>
+                                </div>
+                                <div className="item-shape spotlight">
+                                    <Image
+                                        src="/assets/images/item/small-comet.webp"
+                                        alt="item"
+                                        width={50}
+                                        height={50}
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="swiper-slide h-auto">
-                        <div className="testimonial-item area-effect h-100">
-                            <div className="icon">
-                                <i className="icon-quote"></i>
-                            </div>
-                            <p className="text-body-2 text_white mb_21">
-                                &quot;ZenG managed our project with impressive efficiency and
-                                clarity. Deadlines were met, communication was smooth, and the
-                                outcome was exactly what we hoped for.&quot;
-                            </p>
-                            <div className="athor">
-                                <h5 className="name text_white mb_4 font-4">
-                                    <a href="#" className="link">
-                                        Mas Shin
-                                    </a>
-                                </h5>
-                                <span className="text-label text-uppercase text_primary-color font-3">
-                                    DEV Themesfalt
-                                </span>
-                            </div>
-                            <div className="item-shape spotlight">
-                                <img
-                                    src="assets/images/item/small-comet.webp"
-                                    alt="item"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </section>

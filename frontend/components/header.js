@@ -1,4 +1,7 @@
-export default function Header() {
+import Image from "next/image";
+
+export default function Header({ profile }) {
+  const { name, title, logo, cv_link, social_links } = profile || {};
   return (
     <div>
       <header className="header style-1">
@@ -6,20 +9,17 @@ export default function Header() {
           <div className="header-sidebar style-1">
             <div className="box">
               <div className="avatar">
-                <img
+                <Image
                   alt="avatar"
-                  loading="lazy"
-                  width="68"
-                  height="68"
-                  decoding="async"
-                  data-nimg="1"
-                  src="assets/images/logo/th-logo-invert.png"
+                  width={68}
+                  height={68}
+                  src="/assets/images/logo/th-logo-invert.png"
                 />
               </div>
               <div className="info">
-                <h6 className="font-4 mb_4">Tarek H</h6>
+                <h6 className="font-4 mb_4">{name || "Tarek H"}</h6>
                 <div className="text-label text-uppercase fw-6 text_primary-color font-3  letter-spacing-1">
-                  Full Stuck Developer
+                  {title || "Full Stuck Developer"}
                 </div>
               </div>
             </div>
@@ -247,21 +247,17 @@ export default function Header() {
           <div className="header-sidebar style-1">
             <div className="box">
               <div className="avatar">
-                <img
+                <Image
                   alt="avatar"
-                  loading="lazy"
-                  width="68"
-                  height="68"
-                  decoding="async"
-                  data-nimg="1"
-                  srcSet=""
+                  width={68}
+                  height={68}
                   src="/assets/images/user/Profile.jpeg"
                 />
               </div>
               <div className="info">
-                <h6 className="font-4 mb_4">Tarek H</h6>
+                <h6 className="font-4 mb_4">{name || "Tarek H"}</h6>
                 <div className="text-label text-uppercase fw-6 text_primary-color font-3  letter-spacing-1">
-                  Full Stuck Developer
+                  {title || "Full Stuck Developer"}
                 </div>
               </div>
             </div>

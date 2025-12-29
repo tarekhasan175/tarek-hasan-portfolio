@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Settings() {
     return (
         <div>
@@ -46,110 +48,143 @@ export default function Settings() {
                                             className="d-flex flex-wrap wrap-feature-bg-item">
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-1.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-1.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Glowing
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Glowing
                                                     Digital
                                                     Waves</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-2.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-2.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Vibrant
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Vibrant
                                                     Particle
                                                     Glow</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-3.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-3.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Cyber
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Cyber
                                                     Particle
                                                     Waves</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-4.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-4.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Slow-Motion
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Slow-Motion
                                                     Particle
                                                     Wave</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-7.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-7.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Futuristic
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Futuristic
                                                     Cyber
                                                     Matrix</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-5.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-5.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Particle
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Particle
                                                     Wave
                                                     Form</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-6.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-6.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Looping
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Looping
                                                     Particle
                                                     Animation</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-8.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-8.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Seamless
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Seamless
                                                     Particle
                                                     Glow</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-9.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-9.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Digital
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Digital
                                                     technology</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-11.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-11.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Dotted
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Dotted
                                                     waves
                                                     bounce</a>
                                             </div>
                                             <div
                                                 className="feature-bg-item">
-                                                <img src="assets/images/landing/feature-bg-10.webp"
+                                                <Image
+                                                    src="/assets/images/landing/feature-bg-10.webp"
                                                     alt="feature-bg"
-                                                    loading="lazy" /><a
-                                                        href="home-background-video"
-                                                        className="text-body-1 text_white font-3">Solid
+                                                    width={100}
+                                                    height={100}
+                                                /><a
+                                                    href="home-background-video"
+                                                    className="text-body-1 text_white font-3">Solid
                                                     Color
                                                     Background</a>
                                             </div>

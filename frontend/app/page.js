@@ -11,25 +11,56 @@ import Settings from "@/components/settings";
 import Footer from "@/components/footer";
 
 
-export default function Home() {
+import {
+  getProfile,
+  getExperiences,
+  getEducations,
+  getServices,
+  getProjects,
+  getTestimonials,
+  getSkills,
+  getPricing,
+} from "@/lib/api";
+
+export default async function Home() {
+  const [
+    profile,
+    experiences,
+    educations,
+    services,
+    projects,
+    testimonials,
+    skills,
+    pricing,
+  ] = await Promise.all([
+    getProfile(),
+    getExperiences(),
+    getEducations(),
+    getServices(),
+    getProjects(),
+    getTestimonials(),
+    getSkills(),
+    getPricing(),
+  ]);
+
   return (
     <div id="wrapper" className="counter-scroll bg_dark position-relative">
-    
-      <Header></Header>
+
+      <Header profile={profile}></Header>
 
       <div className="main-content style-fullwidth section-onepage">
         <div className="tf-container w-6">
 
-          <About></About>
-          <Resume></Resume>
-          {/* <Service></Service> */}
-          <Portfolio></Portfolio>
-          <Testimonial></Testimonial>
-          {/* <Pricing></Pricing> */}
-          <Skill></Skill>
-          <Contact></Contact>
+          <About profile={profile}></About>
+          <Resume experiences={experiences} educations={educations}></Resume>
+          {/* <Service services={services}></Service> */}
+          <Portfolio projects={projects}></Portfolio>
+          <Testimonial testimonials={testimonials}></Testimonial>
+          {/* <Pricing pricing={pricing}></Pricing> */}
+          <Skill skills={skills}></Skill>
+          <Contact profile={profile}></Contact>
           <Settings></Settings>
-          <Footer></Footer>
+          <Footer profile={profile}></Footer>
 
         </div>
       </div>
